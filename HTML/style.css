@@ -1,0 +1,30 @@
+.vermelha{
+    height : 300px; /*altura */
+    width : 250px; /*largura*/
+    background-color : rgb(194, 78, 78);
+}
+
+.azul{
+    height : 200px; /*altura */
+    width : 200px; /*largura*/
+    background-color : rgb(114, 155, 192);
+}
+
+#caixaVerde {
+    height : 400px; /*altura */
+    width : 350px; /*largura*/
+    background-color : rgb(123, 160, 123);
+}
+
+h1 {
+    color: rgb(72, 80, 128);
+}
+
+.caixa {
+    height: 400px;
+    width: 300px;
+    border: 2px solid rgb(85, 31, 31);
+    display: inline-grid;
+    padding: 20px;
+    margin: 20px;
+}

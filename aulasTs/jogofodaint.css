@@ -21,7 +21,8 @@ img {
 .jogar{
 width: 90px;
 height: 50px;
-color: purple;   
+color: purple;
+text-align : center;
 }
 
 .h2 {
@@ -49,3 +50,4 @@ color: purple;
 .margem{
     margin: auto;
 }
+

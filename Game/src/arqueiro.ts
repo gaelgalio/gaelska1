@@ -3,7 +3,7 @@ import {Personagem} from "./personagem.ts";
 export class Arqueiro extends Personagem {
 
     constructor (nome:string, forca:number, vida: number, defesa: number){
-        super (nome, forca, vida, defesa, imagem);
+        super (nome, forca, vida, defesa,"https://img.freepik.com/premium-vector/archer-standing-with-his-bow-pixel-art-character-vector-illustration-8-bit-style-vector_658931-42.jpg");
     }
 
     public atacar (persona:Personagem):void {

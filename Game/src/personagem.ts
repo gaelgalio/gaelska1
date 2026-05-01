@@ -32,6 +32,14 @@ export abstract class Personagem {
     );
   }
 
+  getVida (){
+    return this.vida;
+  }
+
+  getImg (){
+    return this.imagem;
+  }
+
   gerarAtaque(): number {
     let maximoAtk = 3;
     return Math.floor(Math.random() * maximoAtk); // 0 ate 3

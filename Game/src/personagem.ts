@@ -14,6 +14,10 @@ export abstract class Personagem {
     this.imagem = _imagem;
   }
 
+  public log(mensagem:string){
+    document.getElementById ("this")!.innerHTML += '<p>' + mensagem + '</p>'; 
+  }
+
   isVivo(): boolean {
     return this.vida > 0;
   }
@@ -27,7 +31,7 @@ export abstract class Personagem {
 
     this.regenerarVida();
 
-    console.log(
+    this.log(
       `${this.nome} recebeu ${dano} de dano, vida atual ${this.vida}.`,
     );
   }
@@ -50,7 +54,7 @@ export abstract class Personagem {
       let regenerar = 100;
       this.vida += regenerar;
 
-      console.log(
+      this.log(
         `${this.nome} recebeu ${regenerar} de regeneração, vida atual ${this.vida}.`,
       );
       this.usouCura = true;

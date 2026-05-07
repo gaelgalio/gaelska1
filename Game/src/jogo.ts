@@ -1,15 +1,15 @@
-import { Arqueiro } from "./arqueiro.js";
-import { Maguinho } from "./mago.js";
+import { Arqueiro } from "./arqueiro.ts";
+import { Maguinho } from "./mago.ts";
 import { Personagem } from "./personagem.ts";
 
 export class jogo {
-  public iniciar(player1: Personagem, player2: Personagem) {
+  public async iniciar(player1: Personagem, player2: Personagem) {
     let turno = 1;
 
     this.atualizaInterface(player1, player2);
 
     while (player1.isVivo() && player2.isVivo) {
-      console.log("\n =============== TURNO" + turno + " ===============");
+      player1.log("\n =============== TURNO" + turno + " ===============");
       player1.atacar(player2);
 
       if (!player2.isVivo()) {
@@ -17,23 +17,19 @@ export class jogo {
       }
       player2.atacar(player1);
       this.atualizaInterface(player1, player2);
-      this.esperaTempo();
+      await this.esperaTempo();
       turno += 1;
     }
 
     if (player1.isVivo()) {
-      console.log(`${player1.nome} ganhou a batalha.`);
+      player1.log(`${player1.nome} ganhou a batalha.`);
     } else {
-      console.log(`${player2.nome} ganhou a batalha.`);
+      player1.log(`${player2.nome} ganhou a batalha.`);
     }
   }
 
   buscaComponenteHTML(id: string) {
     return document.getElementById(id);
-  }
-
-  public log(mensagem:string){
-    this.buscaComponenteHTML("console")!.textContent = mensagem + "\n"; 
   }
 
   public atualizaInterface(jogador1: Personagem, jogador2: Personagem) {
@@ -44,8 +40,8 @@ export class jogo {
       jogador2.getImg();
     jogador2.getImg();
 
-    this.buscaComponenteHTML("saude")!.textContent = "HP: " + jogador1.getVida;
-    this.buscaComponenteHTML("saude")!.textContent = "HP: " + jogador2.getVida;
+    this.buscaComponenteHTML("saude1")!.textContent = "HP: " + jogador1.getVida();
+    this.buscaComponenteHTML("saude2")!.textContent = "HP: " + jogador2.getVida();
 
     this.buscaComponenteHTML("nome1")!.textContent = jogador1.nome;
     this.buscaComponenteHTML("nome2")!.textContent = jogador2.nome;

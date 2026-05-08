@@ -10,7 +10,16 @@ export class jogo {
 
     while (player1.isVivo() && player2.isVivo) {
       player1.log("\n =============== TURNO" + turno + " ===============");
+
       player1.atacar(player2);
+        addTomoUAtk('maguinho_fofinho', true);
+         await this.esperaTempo();
+        addTomoUAtk('maguinho_fofinho', false);
+
+        player1.atacar(player2);
+        addTomoUAtk('arqueiro_querido', true);
+         await this.esperaTempo();
+        addTomoUAtk('arqueiro_querido', false);
 
       if (!player2.isVivo()) {
         break;
@@ -32,6 +41,15 @@ export class jogo {
     return document.getElementById(id);
   }
 
+public addTomoUAtk(id:string, adicionar:boolean) {
+  if(adicionar){
+(document.getElementById(id) as HTMLElement).className = "tomou-dano";
+  }else{
+    (document.getElementById(id) as HTMLElement).className = "";
+  }
+    
+}
+
   public atualizaInterface(jogador1: Personagem, jogador2: Personagem) {
     (document.getElementById("imgjogador1") as HTMLImageElement).src =
       jogador1.getImg();
@@ -40,8 +58,10 @@ export class jogo {
       jogador2.getImg();
     jogador2.getImg();
 
-    this.buscaComponenteHTML("saude1")!.textContent = "HP: " + jogador1.getVida();
-    this.buscaComponenteHTML("saude2")!.textContent = "HP: " + jogador2.getVida();
+    this.buscaComponenteHTML("saude1")!.textContent =
+      "HP: " + jogador1.getVida();
+    this.buscaComponenteHTML("saude2")!.textContent =
+      "HP: " + jogador2.getVida();
 
     this.buscaComponenteHTML("nome1")!.textContent = jogador1.nome;
     this.buscaComponenteHTML("nome2")!.textContent = jogador2.nome;
@@ -61,4 +81,4 @@ function construirJogo() {
   _jogo.iniciar(_mago, _arqueiro);
 }
 
-document.getElementById("botaoJogar")!. addEventListener("click",construirJogo);
+document.getElementById("botaoJogar")!.addEventListener("click", construirJogo);

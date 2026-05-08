@@ -1,89 +1,110 @@
-.jogo{
-    margin : auto;
+.jogo {
+  margin: auto;
+  align-content: center;
 }
 .linha {
-    display: inline-flex;
-    justify-content : center;
-    align-items : center;
-    gap: 40px;
-    width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
 }
+
+/*personagens*/
 .maguinho_fofinho {
-    justify-content : center;
-    align-items : center;
-    gap: 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.arqueiro_querido {
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
 }
 
 img {
-    object-fit: cover;
-    height : 300px; /*altura */
-    width : 250px; /*largura*/
+  object-fit: cover;
+  height: 300px; /*altura */
+  width: 250px; /*largura*/
 }
-
 
 h2 {
-    
-    text-align : center;
+  text-align: center;
 }
 .p {
-    text-align : center;
+  text-align: center;
 }
 
 .h1 {
-    text-align : center;
+  text-align: center;
 }
 
 .body {
-    display : flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.texto{
-    font-size: 20px;
-    text-align: center;
+.texto {
+  font-size: 20px;
+  text-align: center;
 }
 
-.margem{
-    margin: auto;
+.margem {
+  margin: auto;
 }
 
-.this{
-width: 50%;
-background-color : black;
-align-items: center;
-text-align: center;
-color : white;
-height: 300px;
-margin: 10px;
-padding: center;
-overflow: auto;
+.classeconsole {
+  width: 50%;
+  margin:auto;
+  background-color: black;
+  text-align: center;
+  color: white;
+  height: 300px;
+  overflow: auto;
 }
-
+/*config visual dos botões*/
 button {
-    width : 300px;
-    height : 30px;
-    border: 5px solid red;
+  width: 200px;
+  height: 30px;
+  border: 5px solid rgb(66, 165, 83);
 
-    justify-content : center;
-    align-items : center;
+  justify-content: center;
+  align-items: center;
 
-    margin : 20px auto;
-    text-align: center;
-
+  margin: 20px auto;
+  text-align: center;
 }
 
-.borda{
-    border : 1px solid black;
+button:hover {
+  color:rgb(70, 158, 70);
+    border-color:rgb(47, 112, 58);
+    transform: scale(2);
+}
+
+.botaoJogar {
+  width: 300px;
+  height: 30px;
+  border: 5px solid rgb(210, 223, 93);
+}
+
+.borda {
+  border: 2px solid black;
+  margin: 20px;
 }
 
 .vida {
-    width: 100%;
-    border : 2px;
+  width: 100%;
+  border: 2px;
 }
 
 .barraVida {
-    width: 85%;
-    height : 20px;
-    background-color: rgb(235, 65, 65);
+  width: 50%;
+  height: 20px;
+  background-color: rgb(235, 65, 65);
+}
+
+.tomou-dano{
+  transform: scale(2);
 }

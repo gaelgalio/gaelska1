@@ -1,0 +1,54 @@
+.caixa {
+    width:200px;
+    height: 200px;
+    background-color: rgb(87, 153, 87); 
+    border-radius: 20px;
+}
+
+#caixaVerde:hover{
+   background-color: rgb(153, 87, 87); 
+
+}
+
+button{
+    margin: 30px 0px 0px 0px; 
+}
+
+button:hover {
+    color: rgb(87, 153, 87);
+    border-color: rgb(87, 153, 87);
+}
+
+@keyframes rodar {
+    from {transform: rotate(0deg);}
+    /*0%*/
+    to{transform: rotate(90deg);}
+    /*100%*/
+}
+
+.animacao {
+    animation: rodar 5s ease infinite;
+}
+
+#botaoCrescer:hover{
+    color:rgb(70, 158, 70);
+    border-color:rgb(112, 47, 47);
+    transform: scale(2);
+}
+
+#quadCirculo:hover{
+    border-radius: 100px;
+}
+
+@keyframes centro{
+    from {transform: translateX(0%); border-radius : 0px; background-color: rgb(87, 153, 87);}
+    to {transform: translateX(150%); border-radius : 100px; background-color: rgb(59, 151, 173);}
+}
+
+.quadMove{
+    animation: centro 4s linear infinite;
+}
+
+div{
+    margin: 30px 30px 0px 0px; 
+}

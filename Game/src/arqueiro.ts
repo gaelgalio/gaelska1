@@ -7,7 +7,7 @@ export class Arqueiro extends Personagem {
       forca,
       vida,
       defesa,
-      "https://img.freepik.com/premium-vector/archer-standing-with-his-bow-pixel-art-character-vector-illustration-8-bit-style-vector_658931-42.jpg",
+      "C:/Users/Aluno/Desktop/gaelska1/Game/images/arqueiroimagemp-removebg-preview.png",
     );
   }
 

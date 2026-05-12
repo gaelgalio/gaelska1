@@ -11,15 +11,15 @@ export class jogo {
     while (player1.isVivo() && player2.isVivo) {
       player1.log("\n =============== TURNO" + turno + " ===============");
 
-      player1.atacar(player2);
-        addTomoUAtk('maguinho_fofinho', true);
-         await this.esperaTempo();
-        addTomoUAtk('maguinho_fofinho', false);
+      player2.atacar(player1);
+      this.addTomoUAtk("imgjogador1", true);
+      await this.esperaTempo();
+      this.addTomoUAtk("imgjogador1", false);
 
-        player1.atacar(player2);
-        addTomoUAtk('arqueiro_querido', true);
-         await this.esperaTempo();
-        addTomoUAtk('arqueiro_querido', false);
+      player1.atacar(player2);
+      this.addTomoUAtk("imgjogador2", true);
+      await this.esperaTempo();
+      this.addTomoUAtk("imgjogador2", false);
 
       if (!player2.isVivo()) {
         break;
@@ -40,28 +40,34 @@ export class jogo {
   buscaComponenteHTML(id: string) {
     return document.getElementById(id);
   }
-
-public addTomoUAtk(id:string, adicionar:boolean) {
-  if(adicionar){
-(document.getElementById(id) as HTMLElement).className = "tomou-dano";
-  }else{
-    (document.getElementById(id) as HTMLElement).className = "";
+/*config. animação quando recebe dano*/
+  public addTomoUAtk(id: string, adicionar: boolean) {
+    if (adicionar) {
+      (document.getElementById(id) as HTMLElement).className = "tomou-dano";
+    } else {
+      (document.getElementById(id) as HTMLElement).className = "";
+    }
   }
-    
-}
 
   public atualizaInterface(jogador1: Personagem, jogador2: Personagem) {
     (document.getElementById("imgjogador1") as HTMLImageElement).src =
       jogador1.getImg();
-    jogador1.getImg();
+
     (document.getElementById("imgjogador2") as HTMLImageElement).src =
       jogador2.getImg();
-    jogador2.getImg();
 
     this.buscaComponenteHTML("saude1")!.textContent =
       "HP: " + jogador1.getVida();
     this.buscaComponenteHTML("saude2")!.textContent =
       "HP: " + jogador2.getVida();
+
+    (
+      this.buscaComponenteHTML("VidaPlayer2Porcentagem") as HTMLElement
+    ).style.width = (jogador2.getVida() * 100) / jogador2.vidaMaxima + "%";
+
+    (
+      this.buscaComponenteHTML("VidaPlayer1Porcentagem") as HTMLElement
+    ).style.width = (jogador1.getVida() * 100) / jogador1.vidaMaxima + "%";
 
     this.buscaComponenteHTML("nome1")!.textContent = jogador1.nome;
     this.buscaComponenteHTML("nome2")!.textContent = jogador2.nome;
@@ -74,8 +80,8 @@ public addTomoUAtk(id:string, adicionar:boolean) {
 }
 
 function construirJogo() {
-  let _mago: Maguinho = new Maguinho("Mago", 50, 200, 60);
-  let _arqueiro: Arqueiro = new Arqueiro("Arqueiro", 50, 190, 50);
+  let _mago: Maguinho = new Maguinho("Maguinho Fofinho", 50, 200, 60);
+  let _arqueiro: Arqueiro = new Arqueiro("Arqueiro Querido", 50, 190, 50);
 
   let _jogo: jogo = new jogo();
   _jogo.iniciar(_mago, _arqueiro);

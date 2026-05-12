@@ -1,8 +1,9 @@
 export abstract class Personagem {
-  public nome: string = "Mago";
+  public nome: string = "";
   public abstract atacar(persona: Personagem): void;
   protected forca: number = 0;
   protected vida: number = 0;
+  public vidaMaxima: number = 0;
   protected defesa: number = 0;
   protected imagem: string = "";
   private usouCura: boolean = false;
@@ -16,7 +17,10 @@ export abstract class Personagem {
   ) {
     this.nome = _nome;
     this.forca = _forca;
+
     this.vida = _vida;
+    this.vidaMaxima = _vida;
+
     this.defesa = _defesa;
     this.imagem = _imagem;
   }
@@ -65,5 +69,4 @@ export abstract class Personagem {
       this.usouCura = true;
     }
   }
-
 }

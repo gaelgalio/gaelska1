@@ -3,15 +3,17 @@
   // src/personagem.ts
   var Personagem = class {
     constructor(_nome, _forca, _vida, _defesa, _imagem) {
-      this.nome = "Mago";
+      this.nome = "";
       this.forca = 0;
       this.vida = 0;
+      this.vidaMaxima = 0;
       this.defesa = 0;
       this.imagem = "";
       this.usouCura = false;
       this.nome = _nome;
       this.forca = _forca;
       this.vida = _vida;
+      this.vidaMaxima = _vida;
       this.defesa = _defesa;
       this.imagem = _imagem;
     }
@@ -58,7 +60,7 @@
         forca,
         vida,
         defesa,
-        "https://img.freepik.com/premium-vector/archer-standing-with-his-bow-pixel-art-character-vector-illustration-8-bit-style-vector_658931-42.jpg"
+        "C:/Users/Aluno/Desktop/gaelska1/Game/images/arqueiroimagemp-removebg-preview.png"
       );
     }
     //rolagem de ataques
@@ -90,7 +92,7 @@
         forca,
         vida,
         defesa,
-        "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/67ac9192-773b-4a2c-86a5-22816e03bb10/d7ksr69-fd6af9f7-39e8-4a3b-9f96-1c5d6557e875.png/v1/fit/w_828,h_966,q_70,strp/16x16_wizard_sprite_by_obinsun_d7ksr69-414w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTQ5NCIsInBhdGgiOiIvZi82N2FjOTE5Mi03NzNiLTRhMmMtODZhNS0yMjgxNmUwM2JiMTAvZDdrc3I2OS1mZDZhZjlmNy0zOWU4LTRhM2ItOWY5Ni0xYzVkNjU1N2U4NzUucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.miW8aNRZq7IBiRwDecM9osSvNYfdViVh-q26VLKwNeU"
+        "C:/Users/Aluno/Desktop/gaelska1/Game/images/mgooosfnd.png"
       );
     }
     //rolagem de ataques
@@ -125,7 +127,14 @@
       this.atualizaInterface(player1, player2);
       while (player1.isVivo() && player2.isVivo) {
         player1.log("\n =============== TURNO" + turno + " ===============");
+        player2.atacar(player1);
+        this.addTomoUAtk("imgjogador1", true);
+        await this.esperaTempo();
+        this.addTomoUAtk("imgjogador1", false);
         player1.atacar(player2);
+        this.addTomoUAtk("imgjogador2", true);
+        await this.esperaTempo();
+        this.addTomoUAtk("imgjogador2", false);
         if (!player2.isVivo()) {
           break;
         }
@@ -143,13 +152,21 @@
     buscaComponenteHTML(id) {
       return document.getElementById(id);
     }
+    /*config. animação quando recebe dano*/
+    addTomoUAtk(id, adicionar) {
+      if (adicionar) {
+        document.getElementById(id).className = "tomou-dano";
+      } else {
+        document.getElementById(id).className = "";
+      }
+    }
     atualizaInterface(jogador1, jogador2) {
       document.getElementById("imgjogador1").src = jogador1.getImg();
-      jogador1.getImg();
       document.getElementById("imgjogador2").src = jogador2.getImg();
-      jogador2.getImg();
       this.buscaComponenteHTML("saude1").textContent = "HP: " + jogador1.getVida();
       this.buscaComponenteHTML("saude2").textContent = "HP: " + jogador2.getVida();
+      this.buscaComponenteHTML("VidaPlayer2Porcentagem").style.width = jogador2.getVida() * 100 / jogador2.vidaMaxima + "%";
+      this.buscaComponenteHTML("VidaPlayer1Porcentagem").style.width = jogador1.getVida() * 100 / jogador1.vidaMaxima + "%";
       this.buscaComponenteHTML("nome1").textContent = jogador1.nome;
       this.buscaComponenteHTML("nome2").textContent = jogador2.nome;
     }
@@ -158,8 +175,8 @@
     }
   };
   function construirJogo() {
-    let _mago = new Maguinho("Mago", 50, 200, 60);
-    let _arqueiro = new Arqueiro("Arqueiro", 50, 190, 50);
+    let _mago = new Maguinho("Maguinho Fofinho", 50, 200, 60);
+    let _arqueiro = new Arqueiro("Arqueiro Querido", 50, 190, 50);
     let _jogo = new jogo();
     _jogo.iniciar(_mago, _arqueiro);
   }

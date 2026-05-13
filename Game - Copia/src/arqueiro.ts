@@ -1,5 +1,4 @@
 import { Personagem } from "./personagem.ts";
-
 export class Arqueiro extends Personagem {
   constructor(nome: string, forca: number, vida: number, defesa: number) {
     super(

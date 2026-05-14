@@ -6,7 +6,7 @@ export class Arqueiro extends Personagem {
       forca,
       vida,
       defesa,
-      "C:/Users/Aluno/Desktop/gaelska1/Game/images/arqueiroimagemp-removebg-preview.png",
+      "C:/Users/Aluno/Desktop/gaelska1/Game - Copia/images/arqueiroimagemp-removebg-preview.png",
     );
   }
 

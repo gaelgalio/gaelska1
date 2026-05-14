@@ -7,7 +7,7 @@ export class Maguinho extends Personagem {
       forca,
       vida,
       defesa,
-      "C:/Users/Aluno/Desktop/gaelska1/Game/images/mgooosfnd.png",
+      "C:/Users/Aluno/Desktop/gaelska1/Game - Copia/images/mgooosfnd.png",
     );
   }
 

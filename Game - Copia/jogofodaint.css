@@ -1,7 +1,7 @@
 .jogo {
   align-items: center;
   margin: auto;
-  background-color: rgb(133, 187, 133);
+  background-color: rgb(196, 80, 80);
   align-items: center;
 }
 .linha {
@@ -109,5 +109,5 @@ button:hover {
 .barraVida {
   width: 50%;
   height: 20px;
-  background-color: rgb(235, 65, 65);
+  background-color: rgb(125, 224, 122);
 }

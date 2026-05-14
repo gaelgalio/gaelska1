@@ -60,7 +60,7 @@
         forca,
         vida,
         defesa,
-        "C:/Users/Aluno/Desktop/gaelska1/Game/images/arqueiroimagemp-removebg-preview.png"
+        "C:/Users/Aluno/Desktop/gaelska1/Game - Copia/images/arqueiroimagemp-removebg-preview.png"
       );
     }
     //rolagem de ataques
@@ -92,7 +92,7 @@
         forca,
         vida,
         defesa,
-        "C:/Users/Aluno/Desktop/gaelska1/Game/images/mgooosfnd.png"
+        "C:/Users/Aluno/Desktop/gaelska1/Game - Copia/images/mgooosfnd.png"
       );
     }
     //rolagem de ataques
